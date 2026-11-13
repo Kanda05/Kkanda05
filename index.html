@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#981d2d">
+  <title>Capitol University | AR Department Directory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Capitol University directory home" id="home-link">
+        <img src="assets/culogo.png" alt="" class="brand-mark">
+        <span><strong>CAPITOL UNIVERSITY</strong><small>EXPLORE OUR COLLEGES</small></span>
+      </a>
+      <span class="topbar-tag">CAGAYAN DE ORO</span>
+    </header>
+
+    <section class="screen welcome-screen is-hidden" id="welcome-screen">
+      <div class="welcome-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> CAPITOL UNIVERSITY</span>
+        <h1>Explore <span>CU.</span></h1>
+        <p>Discover our colleges and schools.</p>
+        <button class="button button-primary" id="start-scan" type="button">
+          <span class="button-icon" aria-hidden="true">⌖</span> Start scanning <span aria-hidden="true">→</span>
+        </button>
+        <button class="text-button" id="browse-directory" type="button">Browse departments <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="welcome-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit orbit-three"></div>
+        <div class="art-logo"><img src="assets/culogo.png" alt=""></div>
+        <span class="art-caption">CAPITOL UNIVERSITY<br>EST. 1971</span>
+        <span class="art-spark spark-one">✳</span>
+        <span class="art-spark spark-two">✦</span>
+      </div>
+    </section>
+
+    <section class="screen scanner-screen is-hidden" id="scanner-screen" aria-label="Logo scanner">
+      <video id="camera-video" autoplay playsinline muted></video>
+      <canvas id="camera-canvas" hidden></canvas>
+      <div class="scanner-shade"></div>
+      <div class="scanner-top">
+        <button class="round-button" id="close-scanner" type="button" aria-label="Close scanner">×</button>
+        <div><strong>Scan the CU logo</strong><span>Place the logo inside the frame</span></div>
+        <span class="live-pill"><i></i> LIVE</span>
+      </div>
+      <div class="scan-frame" aria-hidden="true">
+        <span class="corner corner-tl"></span><span class="corner corner-tr"></span>
+        <span class="corner corner-bl"></span><span class="corner corner-br"></span>
+        <span class="scan-line"></span>
+      </div>
+      <div class="ar-directory-overlay is-hidden" id="ar-directory-overlay">
+        <div class="ar-overlay-heading">
+          <div><span class="eyebrow"><span class="eyebrow-dot"></span> TARGET RECOGNIZED</span><h2>Choose a college</h2><p>Tap a floating 3D logo to open its profile.</p></div>
+          <button class="round-button" id="dismiss-ar-directory" type="button" aria-label="Continue scanning">×</button>
+        </div>
+        <div class="department-grid ar-department-grid" id="ar-department-grid" aria-label="Select a college logo"></div>
+      </div>
+      <div class="scanner-bottom">
+        <p id="scan-status" role="status">Starting camera…</p>
+        <button class="button button-light" id="manual-directory" type="button">Open directory</button>
+      </div>
+    </section>
+
+    <section class="screen directory-screen" id="directory-screen">
+      <div class="section-heading">
+        <div>
+        
+          <h2>Colleges</h2>
+          <p>Choose a college to learn more about its academic community.</p>
+        </div>
+        <button class="button button-outline" id="scan-again" type="button"><span aria-hidden="true">⌖</span> Scan logo</button>
+      </div>
+      <div class="department-grid" id="department-grid" aria-label="Eight colleges and schools"></div>
+    </section>
+
+    <section class="screen detail-screen is-hidden" id="detail-screen">
+      <button class="back-button" id="back-to-directory" type="button"><span aria-hidden="true">←</span> All colleges</button>
+      <article class="detail-card">
+        <div class="detail-art">
+          <span class="detail-art-label">COLLEGE LOGO</span>
+          <div class="detail-logo-object"><img id="detail-logo" src="" alt=""></div>
+          <span class="detail-art-bottom">CAPITOL UNIVERSITY</span>
+        </div>
+        <div class="detail-copy">
+          <span class="eyebrow"><span class="eyebrow-dot"></span> COLLEGE PROFILE</span>
+          <h2 id="detail-name"></h2>
+          <p id="detail-description"></p>
+          <div class="detail-rule"></div>
+          <p class="detail-hint"><span aria-hidden="true">✦</span> Tap another college anytime to keep exploring.</p>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer"><span>CAPITOL UNIVERSITY</span><span>LEARN · LEAD · SERVE</span></footer>
+    <div class="toast is-hidden" id="toast" role="status"></div>
+  </main>
+
+  <script async src="https://docs.opencv.org/4.x/opencv.js"></script>
+  <script src="app.js"></script>
+  <script type="module" src="3d-logos.js"></script>
+</body>
+</html>
